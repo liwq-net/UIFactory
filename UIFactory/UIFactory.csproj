@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F639B42D-174A-42ED-B2EB-FB2C55F7E243}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UIFactory</RootNamespace>
+    <AssemblyName>UIFactory</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <MonoGameContentBuilderExe>
+    </MonoGameContentBuilderExe>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Windows\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Windows\Release\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="liwq\Agg.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="cocos2d\actions\action\CCAction.cs" />
+    <Compile Include="cocos2d\actions\action\CCFiniteTimeAction.cs" />
+    <Compile Include="cocos2d\actions\action\CCFollow.cs" />
+    <Compile Include="cocos2d\actions\action\CCSpeed.cs" />
+    <Compile Include="cocos2d\actions\action_camera\CCActionCamera.cs" />
+    <Compile Include="cocos2d\actions\action_camera\CCOrbitCamera.cs" />
+    <Compile Include="cocos2d\actions\action_catmull_rom\CCCardinalSplineTo.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCActionEase.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseBackIn.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseBackInOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseBackOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseBounceIn.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseBounceInOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseBounceOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseCustom.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseElastic.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseElasticIn.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseElasticInOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseElasticOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseExponentialIn.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseExponentialInOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseExponentialOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseIn.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseInOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseRateAction.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseSineIn.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseSineInOut.cs" />
+    <Compile Include="cocos2d\actions\action_ease\CCEaseSineOut.cs" />
+    <Compile Include="cocos2d\actions\action_grid3d\CCFlipX3D.cs" />
+    <Compile Include="cocos2d\actions\action_grid3d\CCFlipY3D.cs" />
+    <Compile Include="cocos2d\actions\action_grid3d\CCLens3D.cs" />
+    <Compile Include="cocos2d\actions\action_grid3d\CCLiquid.cs" />
+    <Compile Include="cocos2d\actions\action_grid3d\CCPageTurn3D.cs" />
+    <Compile Include="cocos2d\actions\action_grid3d\CCRipple3D.cs" />
+    <Compile Include="cocos2d\actions\action_grid3d\CCShaky3D.cs" />
+    <Compile Include="cocos2d\actions\action_grid3d\CCTwirl.cs" />
+    <Compile Include="cocos2d\actions\action_grid3d\CCWaves.cs" />
+    <Compile Include="cocos2d\actions\action_grid3d\CCWaves3D.cs" />
+    <Compile Include="cocos2d\actions\action_grid\CCAccelAmplitude.cs" />
+    <Compile Include="cocos2d\actions\action_grid\CCAccelDeccelAmplitude.cs" />
+    <Compile Include="cocos2d\actions\action_grid\CCDeccelAmplitude.cs" />
+    <Compile Include="cocos2d\actions\action_grid\CCGrid3DAction.cs" />
+    <Compile Include="cocos2d\actions\action_grid\CCGridAction.cs" />
+    <Compile Include="cocos2d\actions\action_grid\CCTiledGrid3DAction.cs" />
+    <Compile Include="cocos2d\actions\action_instants\callfunc\CCCallFunc.cs" />
+    <Compile Include="cocos2d\actions\action_instants\callfunc\CCCallFuncN.cs" />
+    <Compile Include="cocos2d\actions\action_instants\callfunc\CCCallFuncND.cs" />
+    <Compile Include="cocos2d\actions\action_instants\callfunc\CCCallFuncO.cs" />
+    <Compile Include="cocos2d\actions\action_instants\CCActionInstant.cs" />
+    <Compile Include="cocos2d\actions\action_instants\CCFlipX.cs" />
+    <Compile Include="cocos2d\actions\action_instants\CCFlipY.cs" />
+    <Compile Include="cocos2d\actions\action_instants\CCHide.cs" />
+    <Compile Include="cocos2d\actions\action_instants\CCPlace.cs" />
+    <Compile Include="cocos2d\actions\action_instants\CCRemoveSelf.cs" />
+    <Compile Include="cocos2d\actions\action_instants\CCReuseGrid.cs" />
+    <Compile Include="cocos2d\actions\action_instants\CCShow.cs" />
+    <Compile Include="cocos2d\actions\action_instants\CCStopGrid.cs" />
+    <Compile Include="cocos2d\actions\action_instants\CCToggleVisibility.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCActionInterval.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCActionTween.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCAnimate.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCBezierBy.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCBezierTo.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCBlink.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCDelayTime.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCFadeIn.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCFadeOut.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCFadeTo.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCJumpBy.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCJumpTo.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCMoveBy.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCMoveTo.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCParallel.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCRepeat.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCRepeatForever.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCReverseTime.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCRotateBy.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCRotateTo.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCScaleBy.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCScaleTo.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCSequence.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCSkewBy.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCSkewTo.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCSpawn.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCTargetedAction.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCTintBy.cs" />
+    <Compile Include="cocos2d\actions\action_intervals\CCTintTo.cs" />
+    <Compile Include="cocos2d\actions\action_progress_timer\CCProgressFromTo.cs" />
+    <Compile Include="cocos2d\actions\action_progress_timer\CCProgressTo.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCFadeOutBLTiles.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCFadeOutDownTiles.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCFadeOutTRTiles.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCFadeOutUpTiles.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCJumpTiles3D.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCShakyTiles3D.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCShatteredTiles3D.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCShuffleTiles.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCSplitCols.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCSplitRows.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCTile.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCTurnOffTiles.cs" />
+    <Compile Include="cocos2d\actions\action_tiled_grid\CCWavesTiles3D.cs" />
+    <Compile Include="cocos2d\actions\CCActionManager.cs" />
+    <Compile Include="cocos2d\base_nodes\CCAtlasNode.cs" />
+    <Compile Include="cocos2d\base_nodes\CCNode.cs" />
+    <Compile Include="cocos2d\base_nodes\CCNodeRGBA.cs" />
+    <Compile Include="cocos2d\CCCamera.cs" />
+    <Compile Include="cocos2d\CCConfiguration.cs" />
+    <Compile Include="cocos2d\CCContent.cs" />
+    <Compile Include="cocos2d\CCDirector.cs" />
+    <Compile Include="cocos2d\CCDisplayLinkDirector.cs" />
+    <Compile Include="cocos2d\CCDrawingPrimitives-DrawEllipticleArc.cs" />
+    <Compile Include="cocos2d\CCDrawingPrimitives.cs" />
+    <Compile Include="cocos2d\CCFPSImage.cs" />
+    <Compile Include="cocos2d\CCScheduler.cs" />
+    <Compile Include="cocos2d\cocoa\CCAffineTransform.cs" />
+    <Compile Include="cocos2d\cocoa\CCGeometry.cs" />
+    <Compile Include="cocos2d\cocoa\ICCCopyable.cs" />
+    <Compile Include="cocos2d\denshion\CCEffectPlayer.cs" />
+    <Compile Include="cocos2d\denshion\CCMusicPlayer.cs" />
+    <Compile Include="cocos2d\denshion\CCSimpleAudioEngine.cs" />
+    <Compile Include="cocos2d\effects\CCGrabber.cs" />
+    <Compile Include="cocos2d\effects\CCGrid3D.cs" />
+    <Compile Include="cocos2d\effects\CCGridBase.cs" />
+    <Compile Include="cocos2d\effects\CCTiledGrid3D.cs" />
+    <Compile Include="cocos2d\extentions\Box2D\CCDraw.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCBAnimationManager.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCBFileLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCBKeyframe.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCBPosition.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCBReader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCBSequence.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCBSequenceProperty.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCBValue.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCControlButtonLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCControlLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCLabelBMFontLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCLabelTTFLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCLayerColorLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCLayerGradientLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCLayerLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCMenuItemImageLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCMenuItemLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCMenuLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCNodeLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCNodeLoaderLibrary.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCParticleSystemQuadLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCScale9SpriteLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCScrollViewLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\CCSpriteLoader.cs" />
+    <Compile Include="cocos2d\extentions\CCBReader\ICCBMemberVariableAssigner.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCControl.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCControlButton.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCControlColourPicker.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCControlHuePicker.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCControlPotentiometer.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCControlSaturationPicker.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCControlSlider.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCControlStepper.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCControlSwitch.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCControlUtils.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCInvocation.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCScale9Sprite.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCScale9SpriteFile.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCControlExtension\CCScale9SpriteFrame.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCScrollView\CCScrollView.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCScrollView\CCSorting.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCScrollView\CCTableView.cs" />
+    <Compile Include="cocos2d\extentions\GUI\CCScrollView\CCTableViewCell.cs" />
+    <Compile Include="cocos2d\gamepad_dispatcher\CCGamePadButtonDelegate.cs" />
+    <Compile Include="cocos2d\gamepad_dispatcher\CCGamePadConnectionDelegate.cs" />
+    <Compile Include="cocos2d\gamepad_dispatcher\CCGamePadDPadDelegate.cs" />
+    <Compile Include="cocos2d\gamepad_dispatcher\CCGamePadStickDelegate.cs" />
+    <Compile Include="cocos2d\gamepad_dispatcher\CCGamePadTriggerDelegate.cs" />
+    <Compile Include="cocos2d\keyboard_dispatcher\CCKeyboardDispatcher.cs" />
+    <Compile Include="cocos2d\keyboard_dispatcher\ICCKeyboardDelegate.cs" />
+    <Compile Include="cocos2d\keypad_dispatcher\CCKeypadDispatcher.cs" />
+    <Compile Include="cocos2d\keypad_dispatcher\ICCKeypadDelegate.cs" />
+    <Compile Include="cocos2d\label_nodes\CCBMFontConfiguration.cs" />
+    <Compile Include="cocos2d\label_nodes\CCLabel-Gdi.cs" />
+    <Compile Include="cocos2d\label_nodes\CCLabel.cs" />
+    <Compile Include="cocos2d\label_nodes\CCLabelAtlas.cs" />
+    <Compile Include="cocos2d\label_nodes\CCLabelBMFont.cs" />
+    <Compile Include="cocos2d\label_nodes\CCLabelTTF.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\CCLayer.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\CCLayerColor.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\CCLayerGradient.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\CCLayerMultiplex.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\CCLayerRGBA.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\CCScene.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionCrossFade.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionFade.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionFadeBL.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionFadeDown.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionFadeTR.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionFadeUp.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionFlipAngular.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionFlipX.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionFlipY.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionJumpZoom.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionMoveInB.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionMoveInL.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionMoveInR.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionMoveInT.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionPageTurn.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionProgress.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionRotoZoom.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionScene.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionSceneOriented.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionShrinkGrow.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionSlideInB.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionSlideInL.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionSlideInR.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionSlideInT.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionSplitCols.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionSplitRows.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionTurnOffTiles.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionZoomFlipAngular.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionZoomFlipX.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\CCTransitionZoomFlipY.cs" />
+    <Compile Include="cocos2d\layers_scenes_transitions_nodes\transition\ICCTransitionEaseScene.cs" />
+    <Compile Include="cocos2d\Math\CCEaseMath.cs" />
+    <Compile Include="cocos2d\Math\CCFastRandom.cs" />
+    <Compile Include="cocos2d\Math\CCLightningTrack.cs" />
+    <Compile Include="cocos2d\Math\CCMathHelper.cs" />
+    <Compile Include="cocos2d\Math\CCRandom.cs" />
+    <Compile Include="cocos2d\Math\CCSplineMath.cs" />
+    <Compile Include="cocos2d\menu_nodes\CCMenu.cs" />
+    <Compile Include="cocos2d\menu_nodes\CCMenuItem.cs" />
+    <Compile Include="cocos2d\menu_nodes\CCMenuItemAtlasFont.cs" />
+    <Compile Include="cocos2d\menu_nodes\CCMenuItemFont.cs" />
+    <Compile Include="cocos2d\menu_nodes\CCMenuItemImage.cs" />
+    <Compile Include="cocos2d\menu_nodes\CCMenuItemLabel.cs" />
+    <Compile Include="cocos2d\menu_nodes\CCMenuItemSprite.cs" />
+    <Compile Include="cocos2d\menu_nodes\CCMenuItemToggle.cs" />
+    <Compile Include="cocos2d\misc_nodes\CCClippingNode.cs" />
+    <Compile Include="cocos2d\misc_nodes\CCDrawNode.cs" />
+    <Compile Include="cocos2d\misc_nodes\CCLightning.cs" />
+    <Compile Include="cocos2d\misc_nodes\CCLightningStreak.cs" />
+    <Compile Include="cocos2d\misc_nodes\CCMotionStreak.cs" />
+    <Compile Include="cocos2d\misc_nodes\CCParallaxScrollNode.cs" />
+    <Compile Include="cocos2d\misc_nodes\CCParallaxScrollOffset.cs" />
+    <Compile Include="cocos2d\misc_nodes\CCProgressTimer.cs" />
+    <Compile Include="cocos2d\misc_nodes\CCRenderTexture.cs" />
+    <Compile Include="cocos2d\particle_nodes\CCParticleBatchNode.cs" />
+    <Compile Include="cocos2d\particle_nodes\CCParticleExamples.cs" />
+    <Compile Include="cocos2d\particle_nodes\CCParticleSystem.cs" />
+    <Compile Include="cocos2d\particle_nodes\CCParticleSystemQuad.cs" />
+    <Compile Include="cocos2d\platform\CCAccelerometer.cs" />
+    <Compile Include="cocos2d\platform\CCAccelerometerDelegate.cs" />
+    <Compile Include="cocos2d\platform\CCApplication.cs" />
+    <Compile Include="cocos2d\platform\CCArrayPool.cs" />
+    <Compile Include="cocos2d\platform\CCContentManager.cs" />
+    <Compile Include="cocos2d\platform\CCDevice.cs" />
+    <Compile Include="cocos2d\platform\CCDictMaker.cs" />
+    <Compile Include="cocos2d\platform\CCDrawManager.cs" />
+    <Compile Include="cocos2d\platform\CCFileUtils.cs" />
+    <Compile Include="cocos2d\platform\CCFocusManager.cs" />
+    <Compile Include="cocos2d\platform\CCInputState.cs" />
+    <Compile Include="cocos2d\platform\CCLog.cs" />
+    <Compile Include="cocos2d\platform\CCOGLES.cs" />
+    <Compile Include="cocos2d\platform\CCPrimitiveBatch.cs" />
+    <Compile Include="cocos2d\platform\CCRawList.cs" />
+    <Compile Include="cocos2d\platform\CCReusedObject.cs" />
+    <Compile Include="cocos2d\platform\CCSAXParser.cs" />
+    <Compile Include="cocos2d\platform\CCSpriteFontCache.cs" />
+    <Compile Include="cocos2d\platform\CCTask.cs" />
+    <Compile Include="cocos2d\platform\ContentReaders\CCBMFontPaddingReader.cs" />
+    <Compile Include="cocos2d\platform\ContentReaders\CCPointReader.cs" />
+    <Compile Include="cocos2d\platform\ContentReaders\CCRectReader.cs" />
+    <Compile Include="cocos2d\platform\ContentReaders\CCSizeReader.cs" />
+    <Compile Include="cocos2d\platform\ContentReaders\KerningHashElementReader.cs" />
+    <Compile Include="cocos2d\platform\ICCFocusable.cs" />
+    <Compile Include="cocos2d\platform\ICCSAXDelegator.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistArray.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistBoolean.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistData.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistDate.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistDictionary.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistDocument.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistInteger.cs" />
+    <Compile Include="cocos2d\platform\PList\PListNull.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistObject.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistObjectBase.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistReal.cs" />
+    <Compile Include="cocos2d\platform\PList\PlistString.cs" />
+    <Compile Include="cocos2d\platform\Tuple.cs" />
+    <Compile Include="cocos2d\platform\Zlib\Adler32.cs" />
+    <Compile Include="cocos2d\platform\Zlib\Deflate.cs" />
+    <Compile Include="cocos2d\platform\Zlib\InfBlocks.cs" />
+    <Compile Include="cocos2d\platform\Zlib\InfCodes.cs" />
+    <Compile Include="cocos2d\platform\Zlib\Inflate.cs" />
+    <Compile Include="cocos2d\platform\Zlib\InfTree.cs" />
+    <Compile Include="cocos2d\platform\Zlib\StaticTree.cs" />
+    <Compile Include="cocos2d\platform\Zlib\SupportClass.cs" />
+    <Compile Include="cocos2d\platform\Zlib\Tree.cs" />
+    <Compile Include="cocos2d\platform\Zlib\ZInputStream.cs" />
+    <Compile Include="cocos2d\platform\Zlib\Zlib.cs" />
+    <Compile Include="cocos2d\platform\Zlib\ZOutputStream.cs" />
+    <Compile Include="cocos2d\platform\Zlib\ZStream.cs" />
+    <Compile Include="cocos2d\platform\Zlib\ZStreamException.cs" />
+    <Compile Include="cocos2d\predefine\CCMacros.cs" />
+    <Compile Include="cocos2d\predefine\CCProtocols.cs" />
+    <Compile Include="cocos2d\predefine\CCTouch.cs" />
+    <Compile Include="cocos2d\predefine\ccTypes.cs" />
+    <Compile Include="cocos2d\predefine\ICCSelectorProtocol.cs" />
+    <Compile Include="cocos2d\script_support\CCScriptEngineManager.cs" />
+    <Compile Include="cocos2d\script_support\CCScriptEngineProtocol.cs" />
+    <Compile Include="cocos2d\sprite_nodes\CCAnimation.cs" />
+    <Compile Include="cocos2d\sprite_nodes\CCAnimationCache.cs" />
+    <Compile Include="cocos2d\sprite_nodes\CCAnimationFrame.cs" />
+    <Compile Include="cocos2d\sprite_nodes\CCMaskedSprite.cs" />
+    <Compile Include="cocos2d\sprite_nodes\CCSprite.cs" />
+    <Compile Include="cocos2d\sprite_nodes\CCSpriteBatchNode.cs" />
+    <Compile Include="cocos2d\sprite_nodes\CCSpriteFrame.cs" />
+    <Compile Include="cocos2d\sprite_nodes\CCSpriteFrameCache.cs" />
+    <Compile Include="cocos2d\sprite_nodes\CCSpriteSheet.cs" />
+    <Compile Include="cocos2d\sprite_nodes\CCSpriteSheetCache.cs" />
+    <Compile Include="cocos2d\support\CCUserDefault.cs" />
+    <Compile Include="cocos2d\support\CCUtils.cs" />
+    <Compile Include="cocos2d\support\Compression\Adler.cs" />
+    <Compile Include="cocos2d\support\Compression\Crc32.cs" />
+    <Compile Include="cocos2d\support\Compression\FlushType.cs" />
+    <Compile Include="cocos2d\support\Compression\GZipStream.cs" />
+    <Compile Include="cocos2d\support\Compression\InflateBlocks.cs" />
+    <Compile Include="cocos2d\support\Compression\InflateCodes.cs" />
+    <Compile Include="cocos2d\support\Compression\InflateManager.cs" />
+    <Compile Include="cocos2d\support\Compression\InfTree.cs" />
+    <Compile Include="cocos2d\support\Compression\SharedUtils.cs" />
+    <Compile Include="cocos2d\support\Compression\ZlibBaseStream.cs" />
+    <Compile Include="cocos2d\support\Compression\ZlibCodec.cs" />
+    <Compile Include="cocos2d\support\Compression\ZlibException.cs" />
+    <Compile Include="cocos2d\support\Compression\ZlibStreamFlavor.cs" />
+    <Compile Include="cocos2d\support\Converters\CCPointConverter.cs" />
+    <Compile Include="cocos2d\support\Converters\CCRectConverter.cs" />
+    <Compile Include="cocos2d\support\Converters\CCSizeConverter.cs" />
+    <Compile Include="cocos2d\support\data_support\CCArray.cs" />
+    <Compile Include="cocos2d\support\image_support\CCTGAlib.cs" />
+    <Compile Include="cocos2d\support\Serialization\CCSerialization.cs" />
+    <Compile Include="cocos2d\support\TransformUtils.cs" />
+    <Compile Include="cocos2d\support\zip_support\CCZHeader.cs" />
+    <Compile Include="cocos2d\support\zip_support\ZipUtils.cs" />
+    <Compile Include="cocos2d\textures\CCTexture2D.cs" />
+    <Compile Include="cocos2d\textures\CCTextureAtlas.cs" />
+    <Compile Include="cocos2d\textures\CCTextureCache.cs" />
+    <Compile Include="cocos2d\text_input_node\CCIMEKeyboardNotificationInfo.cs" />
+    <Compile Include="cocos2d\text_input_node\CCTextFieldTTF.cs" />
+    <Compile Include="cocos2d\text_input_node\ICCIMEDelegate.cs" />
+    <Compile Include="cocos2d\text_input_node\ICCTextFieldDelegate.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCParallaxNode.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCPointObject.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCTileMapAtlas.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCTMXLayer.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCTMXLayerInfo.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCTMXMapInfo.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCTMXObjectGroup.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCTMXTiledMap.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCTMXTileFlags.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCTMXTilesetInfo.cs" />
+    <Compile Include="cocos2d\tileMap_parallax_nodes\CCTMXXMLParser.cs" />
+    <Compile Include="cocos2d\touch_dispatcher\CCStandardTouchHandler.cs" />
+    <Compile Include="cocos2d\touch_dispatcher\CCTargetedTouchHandler.cs" />
+    <Compile Include="cocos2d\touch_dispatcher\CCTouchDelegate.cs" />
+    <Compile Include="cocos2d\touch_dispatcher\CCTouchDispatcher.cs" />
+    <Compile Include="cocos2d\touch_dispatcher\CCTouchHandler.cs" />
+    <Compile Include="cocos2d\touch_dispatcher\ICCEGLTouchDelegate.cs" />
+    <Compile Include="cocos2d\touch_dispatcher\ICCStandardTouchDelegate.cs" />
+    <Compile Include="cocos2d\touch_dispatcher\ICCTargetedTouchDelegate.cs" />
+    <Compile Include="cocos2d\touch_dispatcher\ICCTouchDelegate.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="GameScene.cs" />
+    <Compile Include="liwq\Factory.cs" />
+    <Compile Include="liwq\JpgDecoder.cs" />
+    <Compile Include="liwq\PngDecoder.cs" />
+    <Compile Include="liwq\XAML.cs" />
+    <Compile Include="liwq\XBMFont.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="liwq\UIFactory.cs" />
+    <Compile Include="liwq\ZipDecoder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="BitMiracle.LibTiff.NET">
+      <HintPath>lib\BitMiracle.LibTiff.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="box2d">
+      <HintPath>lib\box2d.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\svg\armchair4.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\behance13.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\bell70.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\briefcase69.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\camera119.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\camera120.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\chart55.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\chat118.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\checkbox6.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\chronometer.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\clipboard.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\coffee128.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\compact disc5.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\directional sign10.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\document6.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\downloading.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\dribbble.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\eye127.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\facebook2.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\flag97.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\flask.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\folded map.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\globe35.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\google plus.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\happy mac.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\heart rate.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\hearts34.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\house180.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\inbox39.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\inbox40.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\instagram19.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\jar21.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\laptop130.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\layers.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\light bulb4.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\lightning31.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\linkedin.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\microphone3.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\notebook91.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\nut4.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\pin66.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\plug.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\power5.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\present33.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\presentation22.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\purse10.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\pyre.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\quaver3.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\rocket77.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\screen84.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\share46.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\shopping cart7.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\speech bubble20.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\star207.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\switch33.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\telephone120.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\timer42.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\truck69.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\tumblr1.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\twitter.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\umbrella1.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\uploading2.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\user7.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\svg\video player.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
