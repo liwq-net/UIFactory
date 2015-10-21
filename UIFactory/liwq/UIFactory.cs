@@ -15,7 +15,6 @@ using System.Xml.Linq;
 
 namespace liwq
 {
-
     #region MiniLanguage
     public static class MiniLanguage
     {
@@ -456,12 +455,12 @@ namespace liwq
             return this;
         }
 
-        public UIGraphic AddPath(
+        public UIGraphic AddPaths(
             double x, double y,
             double width, double height,
             string[] paths,
             double contentX, double contentY,
-            double contentWidth, double contentHeight,
+            double contentWidth, double contentHeight, 
             CCColor4B fill, CCColor4B stroke,
             double strokeThickness = 1,
             Stretch stretch = Stretch.StretchFill
@@ -512,7 +511,7 @@ namespace liwq
             Stretch stretch = Stretch.StretchFill
             )
         {
-            return this.AddPath(x, y, width, height, new string[1] { paths }, contentX, contentY, contentWidth, contentHeight, fill, stroke, strokeThickness, stretch);
+            return this.AddPaths(x, y, width, height, new string[1] { paths }, contentX, contentY, contentWidth, contentHeight, fill, stroke, strokeThickness, stretch);
         }
 
         public UIGraphic AddSvg(double x, double y, double width, double height, string svg)
@@ -561,9 +560,9 @@ namespace liwq
 
             if (width == 0 || height == 0 || (width == contentWidth && height == contentHeight))
             {
-                return this.AddPath(x, y, width, height, pathDatas, contentX, contentY, contentWidth, contentHeight, brush, brush, strokeWidth, Stretch.StretchFill);
+                return this.AddPaths(x, y, width, height, pathDatas, contentX, contentY, contentWidth, contentHeight, brush, brush, strokeWidth, Stretch.StretchFill);
             }
-            return AddPath(x, y, width, height, pathDatas, contentX, contentY, contentWidth, contentHeight, brush, brush, strokeWidth, Stretch.StretchFill);
+            return AddPaths(x, y, width, height, pathDatas, contentX, contentY, contentWidth, contentHeight, brush, brush, strokeWidth, Stretch.StretchFill);
         }
 
         public UIGraphic AddText(double x, double y, string text, CCColor4B fill, CCColor4B stroke, TypeFace font, double emSizeInPoints, bool underline = false, bool flatenCurves = true, double strokeThickness = 1)
@@ -616,7 +615,7 @@ namespace liwq
         }
         #endregion //texture from buffer
 
-
+        //矩形
         public static CCSprite CreateRectangle(
             double width, double height,
             double radiusX, double radiusY,
@@ -646,6 +645,8 @@ namespace liwq
             ccTexture.InitWithTexture(xnaTexture);
             return new CCSprite(ccTexture);
         }
+
+        //圆形
         public static CCSprite CreateEllipse(
             double width, double height,
             CCColor4B fill, CCColor4B stroke,
@@ -674,6 +675,7 @@ namespace liwq
             return new CCSprite(ccTexture);
         }
 
+        //线
         public static CCSprite CreateLine(
             float x1, float y1, float x2, float y2,
             CCColor4B stroke,
@@ -682,9 +684,27 @@ namespace liwq
         {
             int width = (int)Math.Abs(x1 - x2);
             int height = (int)Math.Abs(y1 - y2);
+            return CreateLine(width, height, stroke, strokeThickness);
+        }
+
+        public static CCSprite CreateLine(
+            int width, int height,
+            CCColor4B stroke,
+            double strokeThickness = 1
+            )
+        {
             ImageBuffer buffer = new ImageBuffer(width, height, 32, new BlenderRGBA());
             Graphics2D g = buffer.NewGraphics2D();
-            if (stroke.A > 0) g.Line(x1, y1, x2, y2, new RGBA_Bytes(stroke.R, stroke.G, stroke.B, stroke.A));
+            if (stroke.A > 0)
+            {
+                //g.Line没有厚度
+                PathStorage linesToDraw = new PathStorage();
+                linesToDraw.remove_all();
+                linesToDraw.MoveTo(0, 0);
+                linesToDraw.LineTo(width, height);
+                Stroke StrockedLineToDraw = new Stroke(linesToDraw, strokeThickness);
+                g.Render(StrockedLineToDraw, new RGBA_Bytes(stroke.R, stroke.G, stroke.B, stroke.A));
+            }
             Texture2D xnaTexture = XnaTexture((int)width, (int)height);
             xnaTexture.SetData<byte>(buffer.GetBuffer());
             CCTexture2D ccTexture = new CCTexture2D();
@@ -692,6 +712,7 @@ namespace liwq
             return new CCSprite(ccTexture);
         }
 
+        //路径
         public static CCSprite CreatePath(
             double width, double height,
             string[] paths,
@@ -820,6 +841,6 @@ namespace liwq
             return new CCSprite(ccTexture);
         }
     }
-#endif //false
+#endif 
 
 }
