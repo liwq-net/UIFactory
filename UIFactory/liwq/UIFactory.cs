@@ -8,6 +8,7 @@ using MatterHackers.Agg.Transform;
 using MatterHackers.Agg.VertexSource;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -372,7 +373,6 @@ namespace liwq
     #endregion //Colors
 #endif
 
-
     public class UIGraphic
     {
         public enum Stretch { StretchNone, StretchFill, StretchUniform, StretchUniformToFill };
@@ -406,6 +406,7 @@ namespace liwq
             return this;
         }
 
+        //矩形
         public UIGraphic AddRectangle(double x, double y, double width, double height, CCColor4B fill, CCColor4B stroke, double radiusX = 0, double radiusY = 0, double strokeThickness = 1)
         {
             IVertexSource path;
@@ -426,6 +427,7 @@ namespace liwq
             return this;
         }
 
+        //圆形
         public UIGraphic AddEllipse(double x, double y, double width, double height, CCColor4B fill, CCColor4B stroke, double strokeThickness = 1)
         {
             IVertexSource path;
@@ -447,11 +449,19 @@ namespace liwq
             return this;
         }
 
-        public UIGraphic AddLine(float x1, float y1, float x2, float y2, CCColor4B stroke)
+        //直线
+        public UIGraphic AddLine(float x1, float y1, float x2, float y2, CCColor4B stroke, double strokeThickness = 1)
         {
-            int width = (int)Math.Abs(x1 - x2);
-            int height = (int)Math.Abs(y1 - y2);
-            if (stroke.A > 0) this.graphics2D.Line(x1, y1, x2, y2, new RGBA_Bytes(stroke.R, stroke.G, stroke.B, stroke.A));
+            if (stroke.A > 0)
+            {
+                //g.Line没有厚度
+                PathStorage linesToDraw = new PathStorage();
+                linesToDraw.remove_all();
+                linesToDraw.MoveTo(x1, y1);
+                linesToDraw.LineTo(x2, y2);
+                Stroke StrockedLineToDraw = new Stroke(linesToDraw, strokeThickness);
+                this.graphics2D.Render(StrockedLineToDraw, new RGBA_Bytes(stroke.R, stroke.G, stroke.B, stroke.A));
+            }
             return this;
         }
 
@@ -460,7 +470,7 @@ namespace liwq
             double width, double height,
             string[] paths,
             double contentX, double contentY,
-            double contentWidth, double contentHeight, 
+            double contentWidth, double contentHeight,
             CCColor4B fill, CCColor4B stroke,
             double strokeThickness = 1,
             Stretch stretch = Stretch.StretchFill
@@ -469,8 +479,8 @@ namespace liwq
             if (width == 0) width = contentWidth;
             if (height == 0) height = contentHeight;
 
-            double scalex = 0;
-            double scaley = 0;
+            double scalex = 1.0;
+            double scaley = 1.0;
             //if (stretch == Stretch.StretchNone) { } else 
             if (stretch == Stretch.StretchFill)
             {
@@ -488,11 +498,13 @@ namespace liwq
             foreach (string path in paths)
             {
                 IVertexSource vertexs = MiniLanguage.CreatePathStorage(path);
-                if (x != 0 || y != 0 || contentX != 0 || contentY != 0)
-                    vertexs = new VertexSourceApplyTransform(vertexs, Affine.NewTranslation(x - contentX, y - contentY));
 
+                //先缩放再平移
                 if (scalex != 1.0 || scaley != 1.0)
                     vertexs = new VertexSourceApplyTransform(vertexs, Affine.NewScaling(scalex, scaley));
+
+                if (x != 0 || y != 0 || contentX != 0 || contentY != 0)
+                    vertexs = new VertexSourceApplyTransform(vertexs, Affine.NewTranslation(x - contentX, y - contentY));
 
                 if (fill.A > 0) this.graphics2D.Render(vertexs, new RGBA_Bytes(fill.R, fill.G, fill.B, fill.A));
                 if (stroke.A > 0) this.graphics2D.Render(new Stroke(vertexs, strokeThickness), new RGBA_Bytes(stroke.R, stroke.G, stroke.B, stroke.A));
@@ -500,29 +512,23 @@ namespace liwq
 
             return this;
         }
-        public UIGraphic AddPath(
-            double x, double y,
-            double width, double height,
-            string paths,
-            double contentX, double contentY,
-            double contentWidth, double contentHeight,
-            CCColor4B fill, CCColor4B stroke,
-            double strokeThickness = 1,
-            Stretch stretch = Stretch.StretchFill
-            )
-        {
-            return this.AddPaths(x, y, width, height, new string[1] { paths }, contentX, contentY, contentWidth, contentHeight, fill, stroke, strokeThickness, stretch);
-        }
 
         public UIGraphic AddSvg(double x, double y, double width, double height, string svg)
         {
             XElement xroot = XElement.Parse(svg);
-            double contentWidth = double.Parse(xroot.Attribute("width").Value.Replace("px", ""));
-            double contentHeight = double.Parse(xroot.Attribute("height").Value.Replace("px", ""));
+            double contentWidth = 0;
+            double contentHeight = 0;
             double contentX = 0;
             double contentY = 0;
 
+            if (xroot.Attribute("width") != null)
+                contentWidth = double.Parse(xroot.Attribute("width").Value.Replace("px", ""));
+            if (xroot.Attribute("height") != null)
+                contentHeight = double.Parse(xroot.Attribute("height").Value.Replace("px", ""));
+
+            //svg并不完全解析
             CCColor4B fillColor = CCColor4B.White;
+            CCColor4B strokeColor = CCColor4B.Black;
             double strokeWidth = 1.0;
             if (xroot.Attribute("fill") != null)
             {
@@ -533,6 +539,17 @@ namespace liwq
                     byte g = byte.Parse(value.Substring(3, 2));
                     byte b = byte.Parse(value.Substring(5, 2));
                     fillColor = new CCColor4B(r, g, b);
+                }
+            }
+            if (xroot.Attribute("stroke") != null)
+            {
+                string value = xroot.Attribute("stroke").Value;
+                if (value.StartsWith("#") == true && value.Length == 7)
+                {
+                    byte r = byte.Parse(value.Substring(1, 2));
+                    byte g = byte.Parse(value.Substring(3, 2));
+                    byte b = byte.Parse(value.Substring(5, 2));
+                    strokeColor = new CCColor4B(r, g, b);
                 }
             }
             if (xroot.Attribute("stroke-width") != null)
@@ -546,23 +563,29 @@ namespace liwq
                 {
                     contentX = double.Parse(values[0]);
                     contentY = double.Parse(values[1]);
+                    if (contentWidth == 0) contentWidth = double.Parse(values[2]);
+                    if (contentHeight == 0) contentHeight = double.Parse(values[3]);
                 }
             }
 
-            CCColor4B brush = fillColor;
-
-            XElement[] xpaths = xroot.Elements().Where(xe => xe.Name.LocalName == "path").ToArray();
-            string[] pathDatas = new string[xpaths.Length];
-            for (int i = 0; i < xpaths.Length; i++)
+            List<XElement> xList = new List<XElement>();
+            List<string> pathList = new List<string>();
+            xList.Add(xroot);
+            for (int i = 0; i < xList.Count; i++)
             {
-                pathDatas[i] = xpaths[i].Attribute("d").Value;
+                if (xList[i].HasElements == true)
+                {
+                    xList.AddRange(xList[i].Elements());
+                }
+                if (xList[i].Name.LocalName == "path")
+                    pathList.Add(xList[i].Attribute("d").Value);
             }
-
+            string[] pathDatas = pathList.ToArray();
             if (width == 0 || height == 0 || (width == contentWidth && height == contentHeight))
             {
-                return this.AddPaths(x, y, width, height, pathDatas, contentX, contentY, contentWidth, contentHeight, brush, brush, strokeWidth, Stretch.StretchFill);
+                return this.AddPaths(x, y, width, height, pathDatas, contentX, contentY, contentWidth, contentHeight, fillColor, fillColor, strokeWidth, Stretch.StretchNone);
             }
-            return AddPaths(x, y, width, height, pathDatas, contentX, contentY, contentWidth, contentHeight, brush, brush, strokeWidth, Stretch.StretchFill);
+            return this.AddPaths(x, y, width, height, pathDatas, contentX, contentY, contentWidth, contentHeight, fillColor, fillColor, strokeWidth, Stretch.StretchFill);
         }
 
         public UIGraphic AddText(double x, double y, string text, CCColor4B fill, CCColor4B stroke, TypeFace font, double emSizeInPoints, bool underline = false, bool flatenCurves = true, double strokeThickness = 1)
@@ -765,7 +788,7 @@ namespace liwq
             return new CCSprite(ccTexture);
         }
 
-        public static CCSprite CreatePathFromSVG(string svg, double width, double height, CCColor4B defaultColor)
+        public static CCSprite CreatePathFromSVG(string svg, double width, double height)
         {
             XElement xroot = XElement.Parse(svg);
             double contentWidth = double.Parse(xroot.Attribute("width").Value.Replace("px", ""));
@@ -773,7 +796,9 @@ namespace liwq
             double contentX = 0;
             double contentY = 0;
 
-            CCColor4B fillColor = defaultColor;
+            //svg并不完全解析
+            CCColor4B fillColor = CCColor4B.White;
+            CCColor4B strokeColor = CCColor4B.Black;
             double strokeWidth = 1.0;
             if (xroot.Attribute("fill") != null)
             {
@@ -784,6 +809,17 @@ namespace liwq
                     byte g = byte.Parse(value.Substring(3, 2));
                     byte b = byte.Parse(value.Substring(5, 2));
                     fillColor = new CCColor4B(r, g, b);
+                }
+            }
+            if (xroot.Attribute("stroke") != null)
+            {
+                string value = xroot.Attribute("stroke").Value;
+                if (value.StartsWith("#") == true && value.Length == 7)
+                {
+                    byte r = byte.Parse(value.Substring(1, 2));
+                    byte g = byte.Parse(value.Substring(3, 2));
+                    byte b = byte.Parse(value.Substring(5, 2));
+                    strokeColor = new CCColor4B(r, g, b);
                 }
             }
             if (xroot.Attribute("stroke-width") != null)
@@ -800,22 +836,31 @@ namespace liwq
                 }
             }
 
-            XElement[] xpaths = xroot.Elements().Where(x => x.Name.LocalName == "path").ToArray();
-            string[] datas = new string[xpaths.Length];
-            for (int i = 0; i < xpaths.Length; i++)
+            List<XElement> xList = new List<XElement>();
+            List<string> pathList = new List<string>();
+            xList.Add(xroot);
+            for (int i = 0; i < xList.Count; i++)
             {
-                datas[i] = xpaths[i].Attribute("d").Value;
+                if (xList[i].HasElements == true)
+                {
+                    xList.AddRange(xList[i].Elements());
+                }
+                if (xList[i].Name.LocalName == "path")
+                    pathList.Add(xList[i].Attribute("d").Value);
             }
+            string[] pathDatas = pathList.ToArray();
+            //XElement[] xpaths = xroot.Elements().Where(xe => xe.Name.LocalName == "path").ToArray();
+            //string[] pathDatas = new string[xpaths.Length];
+            //for (int i = 0; i < xpaths.Length; i++)
+            //{
+            //    pathDatas[i] = xpaths[i].Attribute("d").Value;
+            //}
 
             if (width == 0 || height == 0 || (width == contentWidth && height == contentHeight))
             {
-                return CreatePath(0, 0, datas, contentX, contentY, contentWidth, contentHeight, fillColor, fillColor, strokeWidth, UIGraphic.Stretch.StretchNone);
+                return CreatePath(0, 0, pathDatas, contentX, contentY, contentWidth, contentHeight, fillColor, strokeColor, strokeWidth, UIGraphic.Stretch.StretchNone);
             }
-            return CreatePath(width, height, datas, contentX, contentY, contentWidth, contentHeight, fillColor, fillColor, strokeWidth, UIGraphic.Stretch.StretchFill);
-        }
-        public static CCSprite CreatePathFromSVG(string svg, double width, double height)
-        {
-            return CreatePathFromSVG(svg, width, height, CCColor4B.White);
+            return CreatePath(width, height, pathDatas, contentX, contentY, contentWidth, contentHeight, fillColor, strokeColor, strokeWidth, UIGraphic.Stretch.StretchFill);
         }
 
         public static CCSprite CreateText(string text, CCColor4B fill, CCColor4B stroke, TypeFace font, double emSizeInPoints, bool underline = false, bool flatenCurves = true, double strokeThickness = 1)

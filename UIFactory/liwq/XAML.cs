@@ -182,7 +182,7 @@ namespace liwq
         public static CCColor4B Teal { get { return new CCColor4B(0x00, 0x80, 0x80, 0xFF); } }
         public static CCColor4B Thistle { get { return new CCColor4B(0xD8, 0xBF, 0xD8, 0xFF); } }
         public static CCColor4B Tomato { get { return new CCColor4B(0xFF, 0x63, 0x47, 0xFF); } }
-        public static CCColor4B Transparent { get { return new CCColor4B(0xFF, 0xFF, 0xFF, 0x00); } }
+        public static CCColor4B Transparent { get { return new CCColor4B(0x00, 0x00, 0x00, 0x00); } }
         public static CCColor4B Turquoise { get { return new CCColor4B(0x40, 0xE0, 0xD0, 0xFF); } }
         public static CCColor4B Violet { get { return new CCColor4B(0xEE, 0x82, 0xEE, 0xFF); } }
         public static CCColor4B Wheat { get { return new CCColor4B(0xF5, 0xDE, 0xB3, 0xFF); } }
